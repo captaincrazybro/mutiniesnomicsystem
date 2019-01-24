@@ -1,0 +1,14 @@
+{
+  "name": "mutiniesvoicelinkbot",
+  "version": "1.0.0",
+  "description": "A function to give you permission to join a no mic channel when you join a specific voice channel and take it away when you leave the voice channel",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "captaincrazybro",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
