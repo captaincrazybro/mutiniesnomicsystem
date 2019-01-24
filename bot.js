@@ -24,7 +24,7 @@ fs.readdir("./commands/", (err, files) => {
   
 bot.on("ready", async () => {
 	console.log(`${bot.user.username} is online!`);
-	bot.user.setPresence({ status: 'online', game: { name: 'Super Paintball' } });
+	bot.user.setPresence({ status: 'online', game: { name: 'on mutinies.net' } });
 });
 
 client.on('error', console.error);
@@ -52,7 +52,9 @@ bot.on("voiceStateUpdate", async (oldMember, newMember) => {
         } else if(newUserChannel === undefined){
             
                 if(oldUserChannel.members.array().length <= 1){
-                    oldMember.guild.channels.find("name", oldUserChannel.name.toLowerCase() + "-no-mic").delete();
+                    if(oldMember.guild.channels.exists("name", oldUserChannel.name.toLowerCase() + "-no-mic")){
+                        oldMember.guild.channels.find("name", oldUserChannel.name.toLowerCase() + "-no-mic").delete();
+                    }
                 } else {
                     oldMember.guild.channels.find("name", oldUserChannel.name + "-no-mic").overwritePermissions(oldMember, {"VIEW_CHANNEL": false, "SEND_MESSAGES": false});
                 }
